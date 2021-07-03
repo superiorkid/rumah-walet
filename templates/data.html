@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <meta http-equiv="refresh" content="6" >
+{% endblock head %}
+
+{% block content %}
+  <main>
+  <section>
+    <article>
+      <br>
+      <br>
+      <h2 id='1'>Chart</h2>
+      <div>
+        <canvas id="line-chart" width="800" height="450"></canvas>
+      </div>
+
+      <br>
+
+      <h2>Table</h2>
+      
+      <div>
+        
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Datetime</th>
+              <th>Temperature [°C]</th>
+              <th>Humidity [%]</th>
+              <th>Altitude [m]</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            {% for res in data %}
+              <td>{{ res[-1] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-2] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-3] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-4] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-5] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-6] }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for res in data %}
+              <td>{{ res[-7] }}</td>
+            {% endfor %}
+          </tr>
+
+          </tbody>
+        </table>
+        <br>
+        <br>
+      </div>
+    </article>
+  </section>
+</main>
+
+  <script type="text/javascript">
+  var chartColors = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(231,233,237)'
+    };
+
+    new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: {{ data[0][0:14] | safe }},
+        datasets: [{ 
+          data: {{ data[1][0:14] | safe }},
+          label: "Temperature",
+          borderColor: chartColors.red,
+          backgroundColor: chartColors.red,
+          fill: false,
+          cubicInterpolationMode: 'monotone',
+          tension: 0.4
+        }, { 
+          data: {{ data[2][0:14] | safe }},
+          label: "Humidity",
+          borderColor: chartColors.blue,
+          backgroundColor: chartColors.blue,
+          fill: false,
+          cubicInterpolationMode: 'monotone',
+          tension: 0.4
+        }, 
+        // { 
+       //   data: {{ data[3] | safe }},
+       //   label: "Tekanan",
+       //   borderColor: chartColors.purple,
+       //   backgroundColor: chartColors.purple,
+       //   fill: false
+        // },
+        { 
+          data: {{ data[3][0:14] | safe }},
+          label: "Altitude",
+          borderColor: chartColors.green,
+          backgroundColor: chartColors.green,
+          fill: false,
+          cubicInterpolationMode: 'monotone',
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      animation: false,
+      responsive: true,
+      title: {
+        display: true,
+        text: 'Sistem Monitoring Suhu Ruangan Walet'
+      },
+      tooltips: {
+        mode: 'label',
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'datetime'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'value'
+          },
+          // min: 10,
+          // max: 150,
+          suggestedMin: 30,
+          suggestedMax: 30,
+          ticks: {
+            stepSize: 25
+          }
+        }
+      }
+    },
+  });
+
+  </script>
+{% endblock content %}

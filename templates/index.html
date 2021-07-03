@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+	<section>
+		<article>
+		<br>
+		<br>
+		<h2 id="2">Bentuk Rumah Walet?</h2> 
+		<p id="3">Pasar penjualan sarang burung walet memang terbilang menjadi peluang bisnis yang menjanjikan. Salah satu permintaan terbesar datang dari Tiongkok. Sarang burung walet di budaya Cina memiliki nilai yang tinggi karena langka dan memiliki kandungan nutrisi yang baik seperti protein, dan memiliki rasa yang kaya.
+
+		<P><img width="900px" height="500px" src="{{ url_for('static', filename="/img/sarang-walet.jpg") }}" alt="Burung walet"></P>
+
+		Pembuatan rumah walet tidak bisa sembarangan, salah satu yang diperhatikan adalah suhu ruangan yang pas. <p>berikut penjelasannya.</p>
+		</p>
+			<h4>Suhu rumah walet</h4>
+		<p>
+			
+			Pantangan burung walet dalam membudidayakannya adalah tidak boleh dipelihara dalam suhu ruangan yang panas. Idelanya, suhu rumah burung walet harus berkisar antara 27-29 derajat celcius. Suhu ini merupakan suhu biasa yang terdapat di alam habitat walet. <br> Jika suhu terlalu tinggi akan membuat walet menghasilkan air liur dengan kualitas buruk. Seperti, cepat retak, hancur bahkan keropos dan membuat walet susah bertelur. Sedangkan bila suhu terlalu rendah maka, bisa membuat walet kedinginan sampai jatuh sakit. Akibatnya produksi air liur tidak optimal hingga menimbulkan kematian.
+		</p>
+		<P>
+			<img width="900px" height="500px" src="{{ url_for('static', filename="/img/walet2.jpg") }}" alt="Burung walet">
+		</P>
+
+		<h2 id="4">Alasan Mengambil Proyek</h2>
+		<p id="5">Dalam budidaya sarang walet, peternak walet masih kesulitan dalam membudidayakan burung walet pada iklim tropis, salah satunya adalah menjaga temperatur suhu dan kelembaban pada ruangan sarang burung walet agar stabil dan mengetahui nilai populasi burung walet. Pada saat suhu panas, ruangan walet akan menjadi kering yang berimbas pada sarang menjadi rusak dan burung walet yang tidak nyaman tinggal pada sarangnya. </p> <p> Maka dari itu dibuat sistem yang mudah dikelola oleh petani walet sehingga dapat membantu menurunkan temperatur suhu yang panas dan kurangnya kelembaban pada ruangan sarang walet dengan menggunakan sprayer yang bekerja secara otomatis. Pada sistem ini terdapat modul deteksi suhu dan kelembaban yang berfungsi untukmendeteksi nilai suhu dan kelembaban saat ruangan panas/kering, nilai yang sudah terdeteksi akan diproses oleh mikrokontroller sehingga memberikan perintah sprayer aktif jika suhu ruangan panas, sedangkan pada modul deteksi burung walet yang menggunakan infrared mengirimkan nilai pergerakan jika ada objek yang bergerak.Pada nilai sistem tersebut akan dikirimkan ke database cloud yang akan disampaikan melalui aplikasi smartphone petani wallet.</p> <p> Hasil penelitian menunjukkan hasil yang memuaskan. Tingkat keakurasian modul sensor detektor infrared dan sensor suhu kelembaban udara sangat baik, sehingga mampu mengendalikan kondisi suhu dalam ruangan walet yaitu 270C dan kelembaban yang stabil pada nilai 80%. Kestabilan suhu dan kelembaban menghasilkan sarang walet yang bernilai jual tinggi.</p>
+
+		
+		</article>
+	</section>
+	<br><br>
+</main>
+{% endblock content %}
